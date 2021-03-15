@@ -15,7 +15,7 @@ class CreatePostFilesTable extends Migration
     {
         Schema::create('post_files', function (Blueprint $table) {
             $table->id();
-            $table->string("filePath");
+            $table->string("filePath")->nullable();
             $table->timestamps();
 
             $table->foreignId('post_id')->constrained()->onDelete('cascade');
