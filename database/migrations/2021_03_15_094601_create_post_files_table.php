@@ -15,8 +15,8 @@ class CreatePostFilesTable extends Migration
     {
         Schema::create('post_files', function (Blueprint $table) {
             $table->id();
-            $table->string("filePath")->nullable();
-            $table->timestamps();
+            $table->string("filePath")->nullable(); //we catch the rest in the validation method
+            $table->timestamps();                   // So user doesn't upload empty form to server
 
             $table->foreignId('post_id')->constrained()->onDelete('cascade');
             //post_id

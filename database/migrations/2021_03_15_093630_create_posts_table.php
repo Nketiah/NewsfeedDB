@@ -15,9 +15,9 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string("title")->nullable();
-            $table->text("description")->nullable();
-            $table->timestamps();
+            $table->string("title")->nullable();  //we catch the rest in the validation method
+            $table->text("description")->nullable();  //So user doesn't upload empty form to server
+            $table->timestamps();                   
 
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             //user_id
